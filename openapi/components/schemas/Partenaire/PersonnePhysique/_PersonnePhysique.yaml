@@ -1,6 +1,6 @@
 title: PersonnePhysique
 allOf:
-  - $ref: ../_Partenaire.yaml
+  - $ref: ../../../../Partenaire.yaml#/components/schemas/Partenaire
   - type: object
     properties:
       nom:

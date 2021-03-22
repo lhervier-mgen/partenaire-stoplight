@@ -26,4 +26,22 @@ paths:
         in: path
         required: true
 components:
-  schemas: {}
+  schemas:
+    Partenaire:
+      $ref: ./components/schemas/Partenaire/_Partenaire.yaml
+    AdressePostale:
+      $ref: ./components/schemas/Partenaire/AdressePostale.yaml
+    Contact:
+      $ref: ./components/schemas/Partenaire/Contact.yaml
+    CoordonneesBancaires:
+      $ref: ./components/schemas/Partenaire/CoordonneesBancaires.yaml
+    PersonneMorale:
+      $ref: ./components/schemas/Partenaire/PersonneMorale/_PersonneMorale.yaml
+    Employeur:
+      $ref: ./components/schemas/Partenaire/PersonneMorale/Employeur.yaml
+    Etablissement:
+      $ref: ./components/schemas/Partenaire/PersonneMorale/Etablissement.yaml
+    PersonnePhysique:
+      $ref: ./components/schemas/Partenaire/PersonnePhysique/_PersonnePhysique.yaml
+    ProfessionnelDeSante:
+      $ref: ./components/schemas/Partenaire/PersonnePhysique/ProfessionnelDeSante.yaml

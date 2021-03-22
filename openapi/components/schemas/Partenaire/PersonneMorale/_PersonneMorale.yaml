@@ -1,9 +1,7 @@
 title: PersonneMorale
 description: ''
-required:
-  - raisonSociale
 allOf:
-  - $ref: ../_Partenaire.yaml
+  - $ref: ../../../../Partenaire.yaml#/components/schemas/Partenaire
   - type: object
     raisonSociale:
       description: ''

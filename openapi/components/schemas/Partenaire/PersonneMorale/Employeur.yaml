@@ -1,6 +1,6 @@
 title: Employeur
 allOf:
-  - $ref: ./_PersonneMorale.yaml
+  - $ref: ../../../../Partenaire.yaml#/components/schemas/PersonneMorale
   - type: object
     properties:
       siren:

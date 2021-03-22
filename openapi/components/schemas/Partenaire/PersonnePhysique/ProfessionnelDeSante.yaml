@@ -1,6 +1,6 @@
 title: ProfessionnelDeSante
 allOf:
-  - $ref: ./_PersonnePhysique.yaml
+  - $ref: ../../../../Partenaire.yaml#/components/schemas/PersonnePhysique
   - type: object
     properties:
       typePs:
@@ -14,9 +14,7 @@ allOf:
         description: Date de radiation du PS
         type: string
       specialisationPrincipale:
-        description: >-
-                    Cette donnée permet de déterminer plus finement le type de PS pour les cas des
-                    professionnels soumis à ordre et à ADELI
+        description: Cette donnée permet de déterminer plus finement le type de PS pour les cas des professionnels soumis à ordre et à ADELI
         type: string
       categorieProfession:
         description: "Cette donnée permet de déterminer plus finement le type de PS pour les cas des professionnels soumis à ordre et à ADELI.\r\n\r\nLa liste de valeur à donner = 3 caractères de NOIDEN"
