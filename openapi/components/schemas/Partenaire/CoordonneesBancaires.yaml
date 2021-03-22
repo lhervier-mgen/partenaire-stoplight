@@ -1,0 +1,33 @@
+title: CoordonneesBancaires
+description: ''
+type: object
+properties:
+    typeRIB:
+        description: ''
+        enum:
+            - TOUTES_PRESTA
+            - FRAIS_SEJOUR
+            - HONORAIRES_DOMICIL_UNIQUE
+            - HONORAIRES_DOMICIL_MULTI
+        type: string
+    codeEtablissement:
+        description: ''
+        type: string
+    codeGuichet:
+        description: ''
+        type: string
+    nomGuichet:
+        description: ''
+        type: string
+    numCompte:
+        description: 'Pour les établissements, domiciliation tous soins ou séjours'
+        type: string
+    cleRIB:
+        description: ''
+        type: string
+    titulaire:
+        description: ''
+        type: string
+    iban:
+        description: ''
+        type: string

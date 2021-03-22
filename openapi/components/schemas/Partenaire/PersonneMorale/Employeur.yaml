@@ -1,0 +1,7 @@
+title: Employeur
+allOf:
+  - $ref: ./_PersonneMorale.yaml
+  - type: object
+    properties:
+      siren:
+        type: string

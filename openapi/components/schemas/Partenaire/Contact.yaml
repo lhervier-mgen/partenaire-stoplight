@@ -1,0 +1,22 @@
+title: Contact
+description: ''
+type: object
+properties:
+    telStandard:
+        description: ''
+        type: string
+    telPro:
+        description: ''
+        type: string
+    telMobile:
+        description: ''
+        type: string
+    fax:
+        description: ''
+        type: string
+    email:
+        description: ''
+        type: string
+    nomCorresp:
+        description: Nom du correspondant
+        type: string

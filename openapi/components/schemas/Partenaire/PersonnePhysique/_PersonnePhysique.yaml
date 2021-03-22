@@ -1,0 +1,9 @@
+title: PersonnePhysique
+allOf:
+  - $ref: ../_Partenaire.yaml
+  - type: object
+    properties:
+      nom:
+        description: Le nom de la personne physique
+        type: string
+x-examples: {}

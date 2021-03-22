@@ -1,0 +1,25 @@
+title: AdressePostale
+description: Une adresse associée à un partenaire
+type: object
+properties:
+    numeroVoie:
+        description: ''
+        type: integer
+    btq:
+        description: 'bis, ter, ...'
+        type: string
+    typeVoie:
+        description: 'Rue, Boulevard, Voie, ...'
+        type: string
+    nomVoie:
+        description: ''
+        type: string
+    auxiliaireAdresse:
+        description: complément d'adresse
+        type: string
+    codePostal:
+        description: ''
+        type: string
+    commune:
+        description: ''
+        type: string

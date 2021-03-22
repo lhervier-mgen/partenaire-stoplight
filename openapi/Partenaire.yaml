@@ -1,0 +1,29 @@
+openapi: 3.0.2
+info:
+  title: Partenaires
+  version: 1.0.0
+  description: API de gestion des partenaires
+paths:
+  '/partenaire/{numIdentification}':
+    description: Retourne le détail d'un partenaire depuis son identification
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: ./components/schemas/Partenaire/PersonnePhysique/ProfessionnelDeSante.yaml
+                  - $ref: ./components/schemas/Partenaire/PersonneMorale/Employeur.yaml
+                  - $ref: ./components/schemas/Partenaire/PersonneMorale/Etablissement.yaml
+          description: 'Le partenaire existe, et voici son détail.'
+        '404':
+          description: Le partenaire n'existe pas (ou vous n'avez pas le droit d'en voir le détail)
+    parameters:
+      - name: numIdentification
+        schema:
+          type: string
+        in: path
+        required: true
+components:
+  schemas: {}

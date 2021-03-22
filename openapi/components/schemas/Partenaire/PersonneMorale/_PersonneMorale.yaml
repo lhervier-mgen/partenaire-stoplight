@@ -1,0 +1,14 @@
+title: PersonneMorale
+description: ''
+required:
+  - raisonSociale
+allOf:
+  - $ref: ../_Partenaire.yaml
+  - type: object
+    raisonSociale:
+      description: ''
+      type: string
+    properties:
+      raisonSociale:
+        type: string
+x-examples: {}
