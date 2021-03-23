@@ -1,0 +1,3 @@
+title: Etablissement
+allOf:
+  - $ref: ../../../Partenaire.yaml#/components/schemas/_PersonneMorale

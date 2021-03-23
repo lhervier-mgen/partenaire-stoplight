@@ -32,12 +32,6 @@ properties:
     format: date
     description: Date de dernière mise à jour du partenaire
     type: string
-  adressePostale:
-    $ref: ../../../Partenaire.yaml#/components/schemas/AdressePostale
-  coordonneesBancaires:
-    $ref: ../../../Partenaire.yaml#/components/schemas/CoordonneesBancaires
-  contact:
-    $ref: ../../../Partenaire.yaml#/components/schemas/Contact
 required:
   - numIdentification
   - typePartenaire

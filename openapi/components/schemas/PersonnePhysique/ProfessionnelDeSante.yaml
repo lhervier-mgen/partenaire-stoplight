@@ -1,6 +1,6 @@
 title: ProfessionnelDeSante
 allOf:
-  - $ref: ../../../../Partenaire.yaml#/components/schemas/PersonnePhysique
+  - $ref: ../../../Partenaire.yaml#/components/schemas/_PersonnePhysique
   - type: object
     properties:
       typePs:

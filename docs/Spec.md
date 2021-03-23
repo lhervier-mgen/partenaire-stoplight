@@ -1,0 +1,3 @@
+```swagger
+/openapi/Partenaire.json
+```
