@@ -1,0 +1,26 @@
+parameters:
+  - schema:
+      type: string
+    name: numIdentification
+    in: path
+    required: true
+    description: Identification du partenaire
+
+get:
+  summary: Adresse postales d'un partenaire
+  tags:
+    - Partenaire
+  responses:
+    '403':
+      description: Non autorisé
+      content:
+        application/json:
+          schema:
+            $ref: '../Partenaire.yaml#/components/schemas/AdressePostale'
+    '404':
+      description: Si le partenaire n'existe pas
+  operationId: get-partenaire-adressePostale
+  description: Ce Endpoint permet de gérer l'adresse postale d'un partenaire
+  security:
+    - mgenConnect:
+        - lecteur

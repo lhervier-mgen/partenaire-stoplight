@@ -1,4 +1,5 @@
 openapi: 3.0.2
+
 info:
   title: Partenaires
   version: 1.0.0
@@ -6,142 +7,48 @@ info:
   contact:
     name: Fanny Pascal
     email: fpascal@mgen.fr
+
+tags:
+  - name: Partenaire
+
+servers:
+  - url: 'https://partenaire.mock.mgen.fr'
+    description: Mocks
+
 paths:
   '/partenaire/{numIdentification}':
-    description: Retourne le détail d'un partenaire depuis son identification
-    get:
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - $ref: '#/components/schemas/ProfessionnelDeSante'
-                  - $ref: '#/components/schemas/Employeur'
-                  - $ref: '#/components/schemas/Etablissement'
-          description: 'Le partenaire existe, et voici son détail.'
-        '403':
-          description: Non autorisé
-        '404':
-          description: Le partenaire n'existe pas (ou vous n'avez pas le droit d'en voir le détail)
-      summary: Détail partenaire
-      description: Ce Endpoint permet de gérer les informations détaillées sur un partenaire donné
-      operationId: get-partenaire
-      security:
-        - mgenConnect:
-            - lecteur
-      tags:
-        - Partenaire
-    parameters:
-      - name: numIdentification
-        schema:
-          type: string
-        in: path
-        required: true
+    $ref: paths/partenaire@{numIdentification}.yaml
   '/partenaire/{numIdentification}/coordonneesBancaires':
-    parameters:
-      - schema:
-          type: string
-        name: numIdentification
-        in: path
-        required: true
-        description: Identification du partenaire
-    get:
-      summary: Coordonnées bancaires d'un partenaire
-      tags:
-        - Partenaire
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CoordonneesBancaires'
-        '403':
-          description: Non autorisé
-        '404':
-          description: Si le partenaire n'existe pas
-      operationId: get-partenaire-coordonneesBancaires
-      description: Ce Endpoint permet de gérer les coordonnées bancaires d'un partenaire
-      security:
-        - mgenConnect:
-            - lecteur
+    $ref: paths/partenaire@{numIdentification}@coordonneesBancaires.yaml
   '/partenaire/{numIdentification}/contact':
-    parameters:
-      - schema:
-          type: string
-        name: numIdentification
-        in: path
-        required: true
-        description: Identification du partenaire
-    get:
-      summary: Informations de contact d'un partenaire
-      tags:
-        - Partenaire
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Contact'
-        '403':
-          description: Non autorisé
-        '404':
-          description: Si le partenaire n'existe pas
-      operationId: get-partenaire-contact
-      parameters: []
-      description: Ce Endpoint permet de gérer les informations de contact d'un partenaire
-      security:
-        - mgenConnect:
-            - lecteur
+    $ref: paths/partenaire@{numidentification}@contact.yaml
   '/partenaire/{numIdentification}/adressePostale':
-    parameters:
-      - schema:
-          type: string
-        name: numIdentification
-        in: path
-        required: true
-        description: Identification du partenaire
-    get:
-      summary: Adresse postales d'un partenaire
-      tags:
-        - Partenaire
-      responses:
-        '403':
-          description: Non autorisé
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AdressePostale'
-        '404':
-          description: Si le partenaire n'existe pas
-      operationId: get-partenaire-adressePostale
-      description: Ce Endpoint permet de gérer l'adresse postale d'un partenaire
-      security:
-        - mgenConnect:
-            - lecteur
+    $ref: paths/partenaire@{numIdentification}@adressePostale.yaml
+
 components:
+
   schemas:
-    _Partenaire:
-      $ref: ./components/schemas/_Partenaire.yaml
-    _PersonneMorale:
-      $ref: ./components/schemas/PersonneMorale/_PersonneMorale.yaml
-    _PersonnePhysique:
-      $ref: ./components/schemas/PersonnePhysique/_PersonnePhysique.yaml
+    Partenaire:
+      $ref: ./components/schemas/Partenaire.yaml
+    PersonneMorale:
+      $ref: ./components/schemas/Partenaire@PersonneMorale.yaml
+    PersonnePhysique:
+      $ref: ./components/schemas/Partenaire@PersonnePhysique.yaml
     Employeur:
-      $ref: ./components/schemas/PersonneMorale/Employeur.yaml
+      $ref: ./components/schemas/Partenaire@PersonneMorale@Employeur.yaml
     Etablissement:
-      $ref: ./components/schemas/PersonneMorale/Etablissement.yaml
+      $ref: ./components/schemas/Partenaire@PersonneMorale@Etablissement.yaml
     ProfessionnelDeSante:
-      $ref: ./components/schemas/PersonnePhysique/ProfessionnelDeSante.yaml
+      $ref: ./components/schemas/Partenaire@PersonnePhysique@ProfessionnelDeSante.yaml
     AdressePostale:
       $ref: ./components/schemas/AdressePostale.yaml
     Contact:
       $ref: ./components/schemas/Contact.yaml
     CoordonneesBancaires:
       $ref: ./components/schemas/CoordonneesBancaires.yaml
+
   securitySchemes:
+    
     mgenConnect:
       type: oauth2
       flows:
@@ -153,15 +60,12 @@ components:
           authorizationUrl: 'https://connect.mgen.fr/auth'
           refreshUrl: 'https://connect.mgen.fr/refresh'
       description: Connexion à l'API via MGEN Connect
+    
     apigee:
       name: API Key
       type: apiKey
       in: header
       description: APIKey pour accéder à l'API
-servers:
-  - url: 'https://partenaire.mock.mgen.fr'
-    description: Mocks
-tags:
-  - name: Partenaire
+
 security:
   - apigee: []

@@ -1,0 +1,5 @@
+title: Employeur
+type: object
+properties:
+  siren:
+    type: string

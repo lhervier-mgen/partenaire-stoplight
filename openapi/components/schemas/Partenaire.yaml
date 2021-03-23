@@ -5,22 +5,6 @@ properties:
   numIdentification:
     description: "Cet attribut permet d'identifier tous les partenaires. A ce jour tous nos partenaires ont un n° adeli - numéro officiel ou n° fictif.\r\n\r\nLe numéro officiel est attribué par l'ARS pour les professions référencées dans le référentiel ADELI.\r\nPour celles qui ne dependent pas de ce référentiel, un n° fictif adeli est attribué fin d'attribuer un identifiant unique dans notre base.\r\n\r\nA terme une révision de la base est prévue notamment avec le RPPS et l'identifiant RPPS devra être utilisé.\r\n\r\nL'identification est formatée = département + catégorie + numéro ordre + clé"
     type: string
-  typePartenaire:
-    description: "Sous le terme partenaire on identifie plusieurs types de professionnel  :\r\n\r\n- PS_ORDRE: Les Professionnels de santé rattachés à un ordre\r\n- AMS: Les Acteurs du médico-social\r\n- PS_ADELI : Les Professionnels de santé rattachés à ADELI\r\n- ES : Les Etablissements de santé/social\r\n- TIER : Les Tiers ( dont mandataires, concentrateurs)\r\n- EMPL : Les Employeurs"
-    enum:
-      - PS_ORDRE
-      - PS_ADELI
-      - AMS
-      - ES
-      - TIER
-      - EMPL
-    type: string
-  typePersonne:
-    description: "Il est interessant de connaitre la typologie du partenaire auquel on s'adresse ce partenaire peut etre :\r\n\r\n- PP : une personne physique\r\n- PM : une personne morale"
-    enum:
-      - PP
-      - PM
-    type: string
   section:
     description: Section (département) de rattachement
     type: string
@@ -32,7 +16,9 @@ properties:
     format: date
     description: Date de dernière mise à jour du partenaire
     type: string
+  personneMorale:
+    $ref: ../../Partenaire.yaml#/components/schemas/PersonneMorale
+  personnePhysique:
+    $ref: ../../Partenaire.yaml#/components/schemas/PersonnePhysique
 required:
   - numIdentification
-  - typePartenaire
-  - typePersonne

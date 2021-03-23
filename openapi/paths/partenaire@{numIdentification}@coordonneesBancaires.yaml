@@ -1,0 +1,28 @@
+parameters:
+  - schema:
+      type: string
+    name: numIdentification
+    in: path
+    required: true
+    description: Identification du partenaire
+
+get:
+  summary: Coordonnées bancaires d'un partenaire
+  tags:
+    - Partenaire
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../Partenaire.yaml#/components/schemas/CoordonneesBancaires'
+    '403':
+      description: Non autorisé
+    '404':
+      description: Si le partenaire n'existe pas
+  operationId: get-partenaire-coordonneesBancaires
+  description: Ce Endpoint permet de gérer les coordonnées bancaires d'un partenaire
+  security:
+    - mgenConnect:
+        - lecteur

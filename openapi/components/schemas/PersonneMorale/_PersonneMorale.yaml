@@ -1,9 +1,0 @@
-title: PersonneMorale
-description: ''
-allOf:
-  - $ref: ../../../Partenaire.yaml#/components/schemas/_Partenaire
-  - type: object
-    properties:
-      raisonSociale:
-        type: string
-x-examples: {}

@@ -1,0 +1,29 @@
+description: Retourne le détail d'un partenaire depuis son identification
+
+parameters:
+  - name: numIdentification
+    schema:
+      type: string
+    in: path
+    required: true
+
+get:
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: '../Partenaire.yaml#/components/schemas/Partenaire'
+      description: 'Le partenaire existe, et voici son détail.'
+    '403':
+      description: Non autorisé
+    '404':
+      description: Le partenaire n'existe pas (ou vous n'avez pas le droit d'en voir le détail)
+  summary: Détail partenaire
+  description: Ce Endpoint permet de gérer les informations détaillées sur un partenaire donné
+  operationId: get-partenaire
+  security:
+    - mgenConnect:
+        - lecteur
+  tags:
+    - Partenaire

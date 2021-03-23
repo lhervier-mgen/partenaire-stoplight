@@ -1,0 +1,10 @@
+title: PersonneMorale
+description: ''
+type: object
+properties:
+  raisonSociale:
+    type: string
+  etablissement:
+    $ref: ../../Partenaire.yaml#/components/schemas/Etablissement
+  employeur:
+    $ref: ../../Partenaire.yaml#/components/schemas/Employeur

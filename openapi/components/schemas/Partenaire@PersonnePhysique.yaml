@@ -1,0 +1,8 @@
+title: PersonnePhysique
+type: object
+properties:
+  nom:
+    description: Le nom de la personne physique
+    type: string
+  professionnelDeSante:
+    $ref: ../../Partenaire.yaml#/components/schemas/ProfessionnelDeSante

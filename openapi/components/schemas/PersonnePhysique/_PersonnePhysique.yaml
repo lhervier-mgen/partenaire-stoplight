@@ -1,9 +1,0 @@
-title: PersonnePhysique
-allOf:
-  - $ref: ../../../Partenaire.yaml#/components/schemas/_Partenaire
-  - type: object
-    properties:
-      nom:
-        description: Le nom de la personne physique
-        type: string
-x-examples: {}
