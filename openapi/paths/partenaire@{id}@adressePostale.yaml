@@ -1,0 +1,35 @@
+summary: Adresse postale partenaire
+description: Gestion de l'adresse postale d'un partenaire donné
+
+parameters:
+  - name: id
+    description: Identifiant du partenaire
+    in: path
+    required: true
+    schema:
+      type: string
+
+get:
+  operationId: get-partenaire-adressePostale
+  summary: Adresse postale d'un partenaire
+  description: Cette opération permet de récupérer l'adresse postale d'un partenaire
+  tags:
+    - Partenaire
+  security:
+    - mgenConnect:
+        - lecteur
+  responses:
+    '200':
+      summary: OK
+      description: Voici l'adresse postale du partenaire
+      content:
+        application/json:
+          schema:
+            $ref: '../Partenaire.yaml#/components/schemas/AdressePostale'
+    '403':
+      summary: Non autorisé
+      description: Vous n'êtes pas autorisé à accéder à l'adresse postale de ce partenaire
+    '404':
+      summary: Introuvable
+      description: Le partenaire demandé n'existe pas, ou ne possède pas d'adresse postale
+  

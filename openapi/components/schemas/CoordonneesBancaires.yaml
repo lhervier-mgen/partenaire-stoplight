@@ -4,12 +4,12 @@ type: object
 properties:
     typeRIB:
         description: ''
+        type: string
         enum:
             - TOUTES_PRESTA
             - FRAIS_SEJOUR
-            - HONORAIRES_DOMICIL_UNIQUE
-            - HONORAIRES_DOMICIL_MULTI
-        type: string
+            - HONORAIRES_DOMICILE_UNIQUE
+            - HONORAIRES_DOMICILE_MULTI
     codeEtablissement:
         description: ''
         type: string

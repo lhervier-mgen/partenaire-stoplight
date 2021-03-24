@@ -1,9 +1,20 @@
 title: Partenaire
 description: 'Objet racine. Représente un Partenaire chez MGEN, qu''il s''agisse d''un professionnel de santé, ou un établissement (ou autre chose encore).'
 type: object
+required:
+  - id
 properties:
-  numIdentification:
-    description: "Cet attribut permet d'identifier tous les partenaires. A ce jour tous nos partenaires ont un n° adeli - numéro officiel ou n° fictif.\r\n\r\nLe numéro officiel est attribué par l'ARS pour les professions référencées dans le référentiel ADELI.\r\nPour celles qui ne dependent pas de ce référentiel, un n° fictif adeli est attribué fin d'attribuer un identifiant unique dans notre base.\r\n\r\nA terme une révision de la base est prévue notamment avec le RPPS et l'identifiant RPPS devra être utilisé.\r\n\r\nL'identification est formatée = département + catégorie + numéro ordre + clé"
+  id:
+    description: |
+      Cet attribut permet d'identifier tous les partenaires. A ce jour tous nos partenaires ont un n° adeli - numéro officiel ou n° fictif.
+      
+      Le numéro officiel est attribué par l'ARS pour les professions référencées dans le référentiel ADELI.
+      
+      Pour celles qui ne dependent pas de ce référentiel, un n° fictif adeli est attribué fin d'attribuer un identifiant unique dans notre base.
+      
+      A terme une révision de la base est prévue notamment avec le RPPS et l'identifiant RPPS devra être utilisé.
+      
+      L'identification est formatée = département + catégorie + numéro ordre + clé
     type: string
   section:
     description: Section (département) de rattachement
@@ -20,5 +31,3 @@ properties:
     $ref: ../../Partenaire.yaml#/components/schemas/PersonneMorale
   personnePhysique:
     $ref: ../../Partenaire.yaml#/components/schemas/PersonnePhysique
-required:
-  - numIdentification

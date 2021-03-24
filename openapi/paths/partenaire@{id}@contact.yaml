@@ -1,0 +1,35 @@
+summary: Contact partenaire
+description: Gestion des informations de contact d'un partenaire donné
+
+parameters:
+  - name: id
+    description: Identifiant du partenaire
+    in: path
+    required: true
+    schema:
+      type: string
+
+get:
+  operationId: get-partenaire-contact
+  summary: Informations de contact d'un partenaire
+  description: Cette opération permet de consulter les informations de contact d'un partenaire
+  tags:
+    - Partenaire
+  security:
+    - mgenConnect:
+        - lecteur
+  responses:
+    '200':
+      summary: OK
+      description: Voici les informations de contact du partenaire
+      content:
+        application/json:
+          schema:
+            $ref: '../Partenaire.yaml#/components/schemas/Contact'
+    '403':
+      summary: Non autorisé
+      description: Vous n'êtes pas autorisé à consulter les informations de contact de ce partenaire
+    '404':
+      summary: Introuvable
+      description: Le partenaire demandé n'existe pas, ou ne possède pas d'information de contact
+  

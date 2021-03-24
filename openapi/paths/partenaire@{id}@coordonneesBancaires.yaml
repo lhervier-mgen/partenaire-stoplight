@@ -1,0 +1,35 @@
+summary: Coordonnées bancaires partenaire
+description: Gestion des coordonnées bancaires d'un partenaire donné
+
+parameters:
+  - name: id
+    description: Identifiant du partenaire
+    in: path
+    required: true
+    schema:
+      type: string
+    
+get:
+  operationId: get-partenaire-coordonneesBancaires
+  summary: Coordonnées bancaires d'un partenaire
+  description: Cette opération permet de consulter les coordonnées bancaires d'un partenaire
+  tags:
+    - Partenaire
+  security:
+    - mgenConnect:
+        - lecteur
+  responses:
+    '200':
+      summary: OK
+      description: Voici les coordonnées bancaire du partenaire
+      content:
+        application/json:
+          schema:
+            $ref: '../Partenaire.yaml#/components/schemas/CoordonneesBancaires'
+    '403':
+      summary: Non autorisé
+      description: Vous n'êtes pas autorisé à consulter les coordonnées bancaires de ce partenaire
+    '404':
+      summary: Introuvable
+      description: Le partenaire demandé n'existe pas, ou ne possède pas de coordonnées bancaires
+  

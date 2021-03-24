@@ -16,14 +16,14 @@ servers:
     description: Mocks
 
 paths:
-  '/partenaire/{numIdentification}':
-    $ref: paths/partenaire@{numIdentification}.yaml
-  '/partenaire/{numIdentification}/coordonneesBancaires':
-    $ref: paths/partenaire@{numIdentification}@coordonneesBancaires.yaml
-  '/partenaire/{numIdentification}/contact':
-    $ref: paths/partenaire@{numidentification}@contact.yaml
-  '/partenaire/{numIdentification}/adressePostale':
-    $ref: paths/partenaire@{numIdentification}@adressePostale.yaml
+  '/partenaire/{id}':
+    $ref: paths/partenaire@{id}.yaml
+  '/partenaire/{id}/coordonneesBancaires':
+    $ref: paths/partenaire@{id}@coordonneesBancaires.yaml
+  '/partenaire/{id}/contact':
+    $ref: paths/partenaire@{id}@contact.yaml
+  '/partenaire/{id}/adressePostale':
+    $ref: paths/partenaire@{id}@adressePostale.yaml
 
 components:
 

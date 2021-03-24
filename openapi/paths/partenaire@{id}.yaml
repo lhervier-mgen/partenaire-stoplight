@@ -1,0 +1,34 @@
+summary: Détail partenaire
+description: Gestion du détail d'un partenaire donné
+
+parameters:
+  - name: id
+    description: Identifiant du partenaire
+    in: path
+    required: true
+    schema:
+      type: string
+    
+get:
+  operationId: get-partenaire
+  summary: Détail d'un partenaire
+  description: Cette opération permet de récupérer les informations détaillées d'un partenaire donné
+  tags:
+    - Partenaire
+  security:
+    - mgenConnect:
+        - lecteur
+  responses:
+    '200':
+      summary: OK
+      description: Le partenaire existe, et voici son détail.
+      content:
+        application/json:
+          schema:
+            $ref: '../Partenaire.yaml#/components/schemas/Partenaire'
+    '403':
+      summary: Non autorisé
+      description: Vous n'êtes pas autorisés à accéder au détail de ce partenaire
+    '404':
+      summary: Introuvable 
+      description: Le partenaire n'existe pas
